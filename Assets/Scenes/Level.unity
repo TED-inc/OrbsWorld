@@ -158,7 +158,7 @@ MonoBehaviour:
     maxOpponentMass: 500
     maxStartSpeed: 25
     playerMass: 1000
-    clearRadiusForPlayer: 20
+    clearRadiusForPlayer: 200
   physicsParams:
     destroyRadius: 5
     frictionDeceleration: 0.1

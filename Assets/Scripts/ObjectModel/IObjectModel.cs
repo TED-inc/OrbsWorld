@@ -7,12 +7,13 @@ namespace TEDinc.OrbsWorld
     {
         Vector2 Position { get; }
         bool IsDestoyed { get; }
+        bool IsPlayer { get; }
 
         float GetAvgRadius();
 
         float GetMass();
         void SetMass(float mass);
-        void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams);
+        void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams, bool isPlayer = false);
         
         void InteractWith(IObjectModel otherObject);
         void UpdatePhysics(float deltaTime);

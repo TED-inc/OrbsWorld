@@ -7,13 +7,16 @@ namespace TEDinc.OrbsWorld
     {
         public Vector2 Position { get; private set; }
         public bool IsDestoyed { get; private set; }
+        public bool IsPlayer { get; private set; }
 
         private float radius;
         private Vector2 velocity;
         private IPhysicsParams physicsParams;
 
-        public float GetMass() =>
+        public static float GetMass(float radius) =>
             Mathf.PI * radius * radius;
+        public float GetMass() =>
+            GetMass(radius);
         public void SetMass(float mass) =>
             radius = Mathf.Sqrt(mass / Mathf.PI);
         public float GetAvgRadius() =>
@@ -62,12 +65,13 @@ namespace TEDinc.OrbsWorld
         public void Destroy() =>
             IsDestoyed = true;
 
-        public void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams)
+        public void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams, bool isPlayer = false)
         {
             SetMass(mass);
             Position = position;
             this.velocity = velocity;
             this.physicsParams = physicsParams;
+            this.IsPlayer = isPlayer;
         }
     }
 }

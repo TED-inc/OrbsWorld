@@ -10,8 +10,10 @@ namespace TEDinc.OrbsWorld
 
         private IObjectsPhysics objectsPhysics;
         private IObjectsHolder objectsHolder;
+        private IPlayerManager playerManager;
 
-        public void Setup(ISpawnParams spawnParams, IPhysicsParams physicsParams, IDisplayParams displayParams, IObjectsPhysics objectsPhysics, IObjectsHolder objectsHolder)
+        public void Setup(ISpawnParams spawnParams, IPhysicsParams physicsParams, IDisplayParams displayParams,
+            IObjectsPhysics objectsPhysics, IObjectsHolder objectsHolder, IPlayerManager playerManager)
         {
             this.spawnParams = spawnParams;
             this.physicsParams = physicsParams;
@@ -19,6 +21,7 @@ namespace TEDinc.OrbsWorld
 
             this.objectsPhysics = objectsPhysics;
             this.objectsHolder = objectsHolder;
+            this.playerManager = playerManager;
         }
 
         public void ConstructModels()
@@ -52,7 +55,7 @@ namespace TEDinc.OrbsWorld
                 if (objectsHolder.objects[i] != null)
                 {
                     ObjectDisplay orbDisplay = GameObject.Instantiate(spawnParams.ObjectDisplayPrefab, spawnParams.OrbsParent);
-                    orbDisplay.Setup(objectsHolder.objects[i], objectsPhysics);
+                    orbDisplay.Setup(objectsHolder.objects[i], objectsPhysics, displayParams, playerManager);
                 }
         }
     }

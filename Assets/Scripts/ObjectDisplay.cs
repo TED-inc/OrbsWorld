@@ -15,7 +15,7 @@ namespace TEDinc.OrbsWorld
         private IObjectModel model;
         private IObjectsPhysics objectsPhysics;
 
-        public void Setup(IObjectModel model, IObjectsPhysics objectsPhysics)
+        public void Setup(IObjectModel model, IObjectsPhysics objectsPhysics, IDisplayParams displayParams, IPlayerManager playerManager)
         {
             this.model = model;
             this.objectsPhysics = objectsPhysics;
