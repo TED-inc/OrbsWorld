@@ -5,7 +5,8 @@ namespace TEDinc.OrbsWorld
     public interface IDisplayParams
     {
         Color PlayerColor { get; }
-        Gradient OponentsColorRange { get; }
+        Color OponentSmallerColor { get; }
+        Color OponentBiggherColor { get; }
         float GradientMassFactor { get; }
     }
 }

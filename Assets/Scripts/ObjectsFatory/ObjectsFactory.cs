@@ -48,13 +48,13 @@ namespace TEDinc.OrbsWorld
 
         public void ConstructDisplays()
         {
-            foreach (Transform child in spawnParams.OrbsParent)
+            foreach (Transform child in spawnParams.ObjectsParent)
                 GameObject.Destroy(child.gameObject);
 
             for (int i = 0; i < objectsHolder.objects.Length; i++)
                 if (objectsHolder.objects[i] != null)
                 {
-                    ObjectDisplay orbDisplay = GameObject.Instantiate(spawnParams.ObjectDisplayPrefab, spawnParams.OrbsParent);
+                    ObjectDisplay orbDisplay = GameObject.Instantiate(spawnParams.ObjectDisplayPrefab, spawnParams.ObjectsParent);
                     orbDisplay.Setup(objectsHolder.objects[i], objectsPhysics, displayParams, playerManager);
                 }
         }

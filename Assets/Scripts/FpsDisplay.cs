@@ -8,6 +8,11 @@ public sealed class FpsDisplay : MonoBehaviour
     private int[] queue = new int[50];
     private int queueIndex;
 
+#if !DEVELOPMENT_BUILD && !UNITY_EDITOR
+    private void Awake() =>
+        Destroy(gameObject);
+#endif
+
     public void Update()
     {
         int currnet = (int)(1f / Time.unscaledDeltaTime);

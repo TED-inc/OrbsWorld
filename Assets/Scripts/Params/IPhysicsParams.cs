@@ -6,6 +6,7 @@ namespace TEDinc.OrbsWorld
     {
         float DestroyRadius { get; }
         float FrictionDeceleration { get; }
+        float PlayerAcceleration { get; }
         Rect Walls { get; }
     }
 }

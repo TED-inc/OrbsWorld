@@ -7,7 +7,7 @@ namespace TEDinc.OrbsWorld
     public sealed class SpawnParams : ISpawnParams
     {
         public ObjectDisplay ObjectDisplayPrefab => objectDisplayPrefab;
-        public Transform OrbsParent => orbsParent;
+        public Transform ObjectsParent => objectsParent;
 
         public int TargetOpponentCount => targetOponentCount;
         public float MinOpponentMass => minOpponentMass;
@@ -20,7 +20,7 @@ namespace TEDinc.OrbsWorld
         [SerializeField]
         private ObjectDisplay objectDisplayPrefab;
         [SerializeField]
-        private Transform orbsParent;
+        private Transform objectsParent;
 
         [Header("Opponents")]
         [SerializeField]

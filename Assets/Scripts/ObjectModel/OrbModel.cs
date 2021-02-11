@@ -7,7 +7,6 @@ namespace TEDinc.OrbsWorld
     {
         public Vector2 Position { get; private set; }
         public bool IsDestoyed { get; private set; }
-        public bool IsPlayer { get; private set; }
 
         private float radius;
         private Vector2 velocity;
@@ -22,6 +21,9 @@ namespace TEDinc.OrbsWorld
         public float GetAvgRadius() =>
             radius;
 
+
+        public void Accelerate(Vector2 velocity) =>
+            this.velocity += velocity;
 
         public void InteractWith(IObjectModel otherObject)
         {
@@ -51,6 +53,7 @@ namespace TEDinc.OrbsWorld
 
         public void UpdatePhysics(float deltaTime)
         {
+            velocity = velocity.normalized * Mathf.Max(0f, velocity.magnitude - deltaTime * physicsParams.FrictionDeceleration);
             Position += velocity * deltaTime;
             Vector2 newPosition = new Vector2(
                 Mathf.Clamp(Position.x, physicsParams.Walls.xMin + radius, physicsParams.Walls.xMax - radius),
@@ -65,13 +68,12 @@ namespace TEDinc.OrbsWorld
         public void Destroy() =>
             IsDestoyed = true;
 
-        public void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams, bool isPlayer = false)
+        public void Setup(float mass, Vector2 position, Vector2 velocity, IPhysicsParams physicsParams)
         {
             SetMass(mass);
             Position = position;
             this.velocity = velocity;
             this.physicsParams = physicsParams;
-            this.IsPlayer = isPlayer;
         }
     }
 }

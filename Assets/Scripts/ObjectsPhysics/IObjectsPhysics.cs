@@ -6,6 +6,7 @@
     {
         event Notify OnPhysicUpdateDone;
         void Setup(IObjectsHolder objectsHolder, IPhysicsParams physicsParams);
+        // TODO : make async
         void UpdatePhysics(float deltaTime);
     }
 }

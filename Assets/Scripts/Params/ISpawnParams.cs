@@ -5,7 +5,7 @@ namespace TEDinc.OrbsWorld
     public interface ISpawnParams
     {
         ObjectDisplay ObjectDisplayPrefab { get; }
-        Transform OrbsParent { get; }
+        Transform ObjectsParent { get; }
 
 
         int TargetOpponentCount { get; }

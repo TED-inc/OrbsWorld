@@ -7,13 +7,17 @@ namespace TEDinc.OrbsWorld
     public sealed class DisplayParams : IDisplayParams
     {
         public Color PlayerColor => playerColor;
-        public Gradient OponentsColorRange => oponentsColorRange;
+        public Color OponentSmallerColor => oponentSmallerColor;
+        public Color OponentBiggherColor => oponentBiggherColor;
         public float GradientMassFactor => gradientMassFactor;
 
+
         [SerializeField]
-        private Color playerColor;
+        private Color playerColor = Color.gray;
         [SerializeField]
-        private Gradient oponentsColorRange;
+        private Color oponentSmallerColor = Color.blue;
+        [SerializeField]
+        private Color oponentBiggherColor = Color.red;
         [SerializeField]
         private float gradientMassFactor = 1.05f;
     }
